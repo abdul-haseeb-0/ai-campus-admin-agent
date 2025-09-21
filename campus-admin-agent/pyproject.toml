@@ -1,10 +1,15 @@
 [project]
 name = "campus-admin-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "AI-powered campus administration assistant using OpenAI Agent SDK"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "openai-agents>=0.3.1",
     "psycopg2>=2.9.10",
     "sqlalchemy>=2.0.43",
+    "pydantic>=2.0.0",
+    "email-validator>=2.0.0",
+    "langchain-community>=0.3.29",
+    "langchain-google-genai>=2.1.12",
 ]

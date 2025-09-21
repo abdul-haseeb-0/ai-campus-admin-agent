@@ -1,0 +1,22 @@
+Saylani Mass IT Training (S.M.I.T.)
+Institution: Saylani Welfare International Trust
+Program: S.M.I.T. (Saylani Mass IT Training)
+Description: Empowering youth with cutting-edge IT skills for a brighter future.
+Courses Offered:
+  - Web Development (HTML, CSS, JavaScript, React)
+  - Mobile App Development (Flutter, React Native)
+  - Graphic Designing (Adobe Photoshop, Illustrator)
+  - Python Programming
+  - Data Science & Machine Learning
+  - Cloud Computing (AWS, Azure)
+Location: Multiple campuses (Karachi, Lahore, Islamabad, Faisalabad)
+Timings: 24/7 flexible batches (Morning, Afternoon, Evening, Weekend)
+Duration: 3-6 months per course
+Eligibility: Open to all (Beginners to Advanced)
+Fee Structure: Free of cost
+Contact: info@saylaniwelfare.com | +92-123-456-7890
+Address: Saylani Welfare Head Office, A-25, Bahadurabad, Karachi
+Registration: Online at www.saylaniwelfare.com/smit
+Start Date: Rolling admissions, new batches every month
+Additional Services: Career counseling, job placement support, freelancing guidance
+Motto: "Skill Up, Rise Up!"

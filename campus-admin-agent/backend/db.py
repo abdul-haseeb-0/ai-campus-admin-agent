@@ -46,14 +46,14 @@ def get_db():
 
 # Test database connection
 
-if __name__ == "__main__":
-    try:
-        with engine.connect() as connection:
-            print("Database connection successful.")
-    except Exception as e:
-        print(f"Database connection failed: {e}")
+# if __name__ == "__main__":
+#     try:
+#         with engine.connect() as connection:
+#             print("Database connection successful.")
+#     except Exception as e:
+#         print(f"Database connection failed: {e}")
 
-    print("Creating tables...")
-    Base.metadata.create_all(engine)
-    print("Tables created.")
+#     print("Creating tables...")
+#     Base.metadata.create_all(engine)
+#     print("Tables created.")
   

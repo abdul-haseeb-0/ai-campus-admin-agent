@@ -2,11 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from agents import Runner
-from backend.tools import (
-    add_student, get_student, update_student, delete_student, list_students,
-    get_total_students, get_students_by_department, get_recent_onboarded_students,
-    get_active_students_last_7_days
-)
+
 from pydantic import BaseModel
 from backend.agent import handoff_agent, student_management_agent, campus_analytics_agent   # if you actually have backend/agent.py
 from openai.types.responses import ResponseTextDeltaEvent

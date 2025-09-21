@@ -586,35 +586,3 @@ async def get_lunch_timing() -> Dict[str, Any]:
         request_id=request_id
     ).dict()
 
-# # =============================================================================
-# DATA_PATH = "data\smit.txt"
-# if not os.path.exists(DATA_PATH):
-#     raise FileNotFoundError(f"Missing {DATA_PATH}")
-
-# loader = TextLoader(DATA_PATH)
-# documents = loader.load()
-
-# # Efficient splitting with adaptive logic
-# splitter = RecursiveCharacterTextSplitter(
-#     chunk_size=800, chunk_overlap=100, separators=["\n\n", "\n", ".", " "]
-# )
-# docs = splitter.split_documents(documents)
-
-# # Build embeddings + FAISS index
-# embeddings = GoogleGenerativeAIEmbeddings(model='gemini-embedding-001', api_key=os.getenv("GEMINI_API_KEY"))
-# vectorstore = FAISS.from_documents(docs, embeddings)
-# retriever = vectorstore.as_retriever()
-
-# # -------------------------
-# # 4. Retriever Tool
-# # -------------------------
-# @function_tool
-# def retrieve_info(query: str) -> str:
-#     """Search the local knowledge base and return the most relevant context for the query.
-
-#     Args:
-#         query: The user question or topic to look up.
-#     """
-#     results = retriever.get_relevant_documents(query)
-#     context = "\n\n".join([doc.page_content for doc in results[:3]])
-#     return context if context else "No relevant info found."

@@ -98,7 +98,6 @@ Intelligent Response Guidelines:
         get_cafeteria_timings, 
         get_library_hours,
         get_lunch_timing,
-        # retrieve_info
         ],
     model_settings=ModelSettings(tool_choice="required")
 )
@@ -126,7 +125,7 @@ handoff_agent = Agent(
     • Student Management: add_student, get_student, update_student, delete_student, list_students
     • Analytics: get_total_students, get_students_by_department, get_recent_onboarded_students, get_active_students_last_7_days
     • Campus Info: get_cafeteria_timings, get_library_hours, get_lunch_timing
-    
+ 
     Your goal is to ensure the user gets the most accurate and relevant information or assistance possible. Always aim to be helpful, accurate, and provide clear responses.""",
     model=OpenAIChatCompletionsModel(model="gemini-2.0-flash", openai_client=client),
     handoffs=[student_management_agent, campus_analytics_agent, campus_info_agent],

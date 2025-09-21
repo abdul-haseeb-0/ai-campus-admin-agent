@@ -26,7 +26,7 @@ client = AsyncOpenAI(
 # -------------------------
 # 3. RAG Setup
 # -------------------------
-DATA_PATH = "data\smit.txt"
+DATA_PATH = "backend\data\smit.txt"
 if not os.path.exists(DATA_PATH):
     raise FileNotFoundError(f"Missing {DATA_PATH}")
 
@@ -61,7 +61,7 @@ def retrieve_info(query: str) -> str:
 # -------------------------
 # 5. Agent
 # -------------------------
-agent = Agent(
+rag_agent = Agent(
     name="smit_rag_agent",
     instructions=(
         "You are a retrieval-augmented assistant. "
@@ -81,11 +81,11 @@ agent = Agent(
 # -------------------------
 # 6. CLI Loop
 # -------------------------
-if __name__ == "__main__":
-    print("RAG Agent ready. Type 'exit' to quit.\n")
-    while True:
-        query = input("User: ").strip()
-        if query.lower() in {"exit", "quit"}:
-            break
-        result = Runner.run_sync(agent, query)
-        print("Assistant:", result.final_output, "\n")
+# if __name__ == "__main__":
+#     print("RAG Agent ready. Type 'exit' to quit.\n")
+#     while True:
+#         query = input("User: ").strip()
+#         if query.lower() in {"exit", "quit"}:
+#             break
+#         result = Runner.run_sync(agent, query)
+#         print("Assistant:", result.final_output, "\n")

@@ -143,3 +143,4 @@ if __name__ == "__main__":
     print("• Validation errors are caught before database operations")
     print("• Better error messages for users")
     print("• Type safety and data integrity guaranteed")
+

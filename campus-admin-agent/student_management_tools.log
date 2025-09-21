@@ -1,146 +1,79 @@
-2025-09-21 14:12:30,488 - __main__ - INFO - Student Management Agent initialized.
-2025-09-21 14:12:30,489 - __main__ - INFO - Campus Analytics Agent initialized.
-2025-09-21 14:12:30,490 - __main__ - INFO - Campus Info Agent initialized.
-2025-09-21 14:12:30,490 - __main__ - INFO - Handoff Agent initialized.
-2025-09-21 14:12:38,386 - __main__ - INFO - Processing query: what is cafeteria timing
-2025-09-21 14:12:38,388 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Student_Management' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___student_management'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:38,392 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Analytics' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_analytics'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:38,392 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Info' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_info'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:38,394 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Student_Management' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___student_management'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:38,394 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Analytics' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_analytics'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:38,395 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Info' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_info'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:40,146 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:12:40,868 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:12:40,883 - tools - INFO - Agent request 076b08c0-0427-4ed8-ac99-dab6282d5a57: Getting cafeteria timings
-2025-09-21 14:12:41,535 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:12:43,408 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:12:52,722 - __main__ - INFO - Processing query: what is lunch timing
-2025-09-21 14:12:52,722 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Student_Management' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___student_management'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:52,723 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Analytics' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_analytics'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:52,723 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Info' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_info'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:52,724 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Student_Management' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___student_management'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:52,725 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Analytics' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_analytics'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:52,726 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Info' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_info'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:12:53,440 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:12:54,163 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:12:54,711 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:12:58,454 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:14:49,033 - __main__ - INFO - Student Management Agent initialized.
-2025-09-21 14:14:49,034 - __main__ - INFO - Campus Analytics Agent initialized.
-2025-09-21 14:14:49,035 - __main__ - INFO - Campus Info Agent initialized.
-2025-09-21 14:14:49,035 - __main__ - INFO - Handoff Agent initialized.
-2025-09-21 14:16:24,354 - __main__ - INFO - Processing query: will you add a student entry name ALI, department computer, ali@gmail.com, unique id 001
-2025-09-21 14:16:24,357 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Student_Management' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___student_management'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:16:24,359 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Analytics' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_analytics'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:16:24,359 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Info' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_info'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:16:24,360 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Student_Management' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___student_management'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:16:24,361 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Analytics' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_analytics'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:16:24,361 - openai.agents - WARNING - Tool name 'transfer_to_Campus_Admin_Assistant_-_Campus_Info' contains invalid characters for function calling and has been transformed to 'transfer_to_campus_admin_assistant___campus_info'. Please use only letters, digits, and underscores to avoid potential naming conflicts.
-2025-09-21 14:16:25,851 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:16:26,658 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:16:29,370 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:45:48,357 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:45:48,902 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:45:51,606 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:46:51,827 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:46:52,810 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:46:53,368 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:46:53,981 - tools - INFO - Agent request f0b285e8-be1f-4eed-8be0-268dab91995f: Adding student 001
-2025-09-21 14:46:56,880 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:47:01,057 - tools - ERROR - Agent request f0b285e8-be1f-4eed-8be0-268dab91995f: Validation error adding student: 5 validation errors for StudentResponse
-id
-  Field required [type=missing, input_value={'_sa_instance_state': <s... at 0x00000127EC6D01D0>}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.11/v/missing
-student_id
-  Field required [type=missing, input_value={'_sa_instance_state': <s... at 0x00000127EC6D01D0>}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.11/v/missing
-name
-  Field required [type=missing, input_value={'_sa_instance_state': <s... at 0x00000127EC6D01D0>}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.11/v/missing
-department
-  Field required [type=missing, input_value={'_sa_instance_state': <s... at 0x00000127EC6D01D0>}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.11/v/missing
-email
-  Field required [type=missing, input_value={'_sa_instance_state': <s... at 0x00000127EC6D01D0>}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.11/v/missing
-2025-09-21 14:47:01,932 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:47:02,188 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:47:06,948 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:47:48,816 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:47:52,145 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:48:15,561 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:48:16,116 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:48:16,334 - tools - INFO - Agent request ad8221cf-bf58-42e6-95b9-0cc7e7375438: Listing all students
-2025-09-21 14:48:17,222 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:48:17,274 - tools - ERROR - Agent request ad8221cf-bf58-42e6-95b9-0cc7e7375438: Error listing students: 2 validation errors for StudentResponse
-created_at
-  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 9, 21, 9, 47, 0, 19639), input_type=datetime]
-    For further information visit https://errors.pydantic.dev/2.11/v/string_type
-updated_at
-  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 9, 21, 9, 47, 0, 19648), input_type=datetime]
-    For further information visit https://errors.pydantic.dev/2.11/v/string_type
-2025-09-21 14:48:17,645 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:48:22,237 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:51:51,641 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:51:52,214 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:51:54,951 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:52:21,153 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:52:21,966 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:52:21,976 - tools - INFO - Agent request 1e8024c5-2a9e-497e-93dc-59773df15f08: Listing all students
-2025-09-21 14:52:24,398 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:52:31,769 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:52:34,431 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:53:01,498 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:53:01,887 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:53:02,135 - tools - INFO - Agent request 4c9e45f1-5a2d-4aff-b511-f409bd6fd315: Deleting student 001
-2025-09-21 14:53:04,526 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:53:04,686 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:53:09,543 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:53:39,667 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:53:39,860 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:53:40,257 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:53:44,685 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:54:38,006 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:54:38,453 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:54:38,950 - tools - INFO - Agent request 5ccb575e-b6ba-4802-82e6-fdedc18c62db: Adding student 001
-2025-09-21 14:54:39,873 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:54:42,712 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:54:44,888 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:56:10,839 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:56:11,342 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:56:14,225 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:56:40,488 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:56:41,104 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:56:44,311 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:56:58,755 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:56:59,341 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:56:59,351 - tools - INFO - Agent request 97587a26-ab6b-4621-91f6-8d4f37193d3e: Retrieving student 001
-2025-09-21 14:56:59,357 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:57:05,711 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:57:09,388 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:57:16,333 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:57:17,012 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:57:17,024 - tools - INFO - Agent request 2990d93b-42b5-49ee-ac7f-90abac00b9ae: Getting cafeteria timings
-2025-09-21 14:57:17,508 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:57:19,422 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:57:27,327 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:57:27,944 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:57:27,953 - tools - INFO - Agent request 1523b7b4-0294-40e7-9bed-0031d2d382f8: Getting lunch timing
-2025-09-21 14:57:28,785 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:57:29,451 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:57:54,510 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:57:54,535 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:57:54,950 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:57:59,552 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:58:13,398 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:58:13,952 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:58:14,608 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:58:34,695 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:58:35,718 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:58:36,236 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:58:36,547 - tools - INFO - Agent request e2302eab-3491-48f8-9617-858ef778b7f6: Getting active students for last 7 days
-2025-09-21 14:58:38,278 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:58:39,713 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:59:29,893 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
-2025-09-21 14:59:30,754 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
-2025-09-21 14:59:34,908 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 18:10:57,278 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 18:10:57,815 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 18:11:00,613 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 18:14:42,994 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 18:14:43,889 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 18:14:46,234 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 18:15:01,281 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 18:15:02,217 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 18:15:02,666 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 18:15:03,274 - tools - INFO - Agent request 43a7d3d3-dac0-4554-a19c-9d7c027db8f9: Adding student 00001
+2025-09-21 18:15:06,321 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 18:15:09,327 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 18:15:11,336 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 18:17:35,367 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 18:17:35,858 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 18:17:36,437 - tools - INFO - Agent request 3b78689f-5d79-47ea-bda0-ce3291cffe37: Adding student 005
+2025-09-21 18:17:38,692 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 18:17:43,711 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 18:17:44,642 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 18:17:48,728 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:44:25,536 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:44:26,476 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:44:28,838 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:46:09,745 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:46:11,022 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:46:13,022 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:47:02,730 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:47:03,177 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:47:03,397 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:47:08,194 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:50:23,418 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:50:24,391 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:50:26,656 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:50:54,254 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:50:55,471 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:50:56,744 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:51:25,520 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:51:26,516 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:51:26,528 - backend.tools - INFO - Agent request d47f5edd-b748-4b62-9a40-f19de9e8653c: Adding student 555
+2025-09-21 19:51:26,842 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:51:33,341 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:51:36,879 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:51:51,823 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:51:51,924 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:51:52,640 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:51:52,647 - backend.tools - INFO - Agent request f358d0ea-c02e-4ba6-a11f-3a8aacb5c15a: Adding student 5215
+2025-09-21 19:51:54,313 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:51:56,940 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:52:09,612 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:52:10,381 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:52:11,986 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:53:05,657 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:53:06,716 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:53:06,719 - backend.tools - INFO - Agent request c54bd64a-df50-40a9-941e-8fb5a1cdad30: Adding student 5215
+2025-09-21 19:53:07,152 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:53:09,889 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:53:12,172 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:53:52,024 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:53:52,296 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:53:52,952 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:53:53,395 - backend.tools - INFO - Agent request ee274e51-1846-41e0-935f-c4521b98c82f: Adding student 521
+2025-09-21 19:53:54,917 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:53:57,316 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:54:12,364 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 19:54:13,003 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:54:13,430 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:54:13,914 - backend.tools - INFO - Agent request cf9400c5-5c7c-4047-9875-2722c4dcda6c: Adding student 524541
+2025-09-21 19:54:16,765 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 19:54:17,378 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 20:05:58,492 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 20:05:58,512 - backend.tools - INFO - Agent request 98f6c237-b674-41f4-a41f-76023407f6e4: Adding student 1212112
+2025-09-21 20:06:01,716 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 20:06:09,746 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 20:06:11,747 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 20:08:59,529 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 20:08:59,547 - backend.tools - INFO - Agent request af3f4141-10b2-45de-a1d7-27b6b42b1149: Getting total student count
+2025-09-21 20:09:03,282 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export
+2025-09-21 20:09:07,823 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 20:09:08,300 - openai.agents - WARNING - OPENAI_API_KEY is not set, skipping trace export

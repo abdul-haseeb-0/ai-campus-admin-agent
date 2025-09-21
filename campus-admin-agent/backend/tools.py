@@ -1,15 +1,3 @@
-# Utility function to convert SQLAlchemy Student to dict for Pydantic
-def student_to_response(student):
-    return {
-        "id": student.id,
-        "student_id": student.student_id,
-        "name": student.name,
-        "department": student.department,
-        "email": student.email,
-        "is_active": student.is_active,
-        "created_at": student.created_at.isoformat() if student.created_at else None,
-        "updated_at": student.updated_at.isoformat() if student.updated_at else None,
-    }
 import asyncio
 from openai import AsyncOpenAI
 from dotenv import load_dotenv
@@ -18,7 +6,13 @@ from sqlalchemy import func, desc, or_
 from datetime import datetime, timedelta, timezone
 from typing import Dict, Any, List, Optional
 from pydantic import BaseModel, Field, EmailStr, validator
-from db import get_db, Student, ActivityLog, SessionLocal
+from backend.db import get_db, Student, ActivityLog, SessionLocal
+import os
+from dotenv import load_dotenv
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import FAISS
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import os
 import logging
 import re
@@ -33,6 +27,18 @@ except ImportError as e:
     raise ImportError("Ensure the 'agents' package is installed and correctly configured.")
 
 load_dotenv()
+
+def student_to_response(student):
+    return {
+        "id": student.id,
+        "student_id": student.student_id,
+        "name": student.name,
+        "department": student.department,
+        "email": student.email,
+        "is_active": student.is_active,
+        "created_at": student.created_at.isoformat() if student.created_at else None,
+        "updated_at": student.updated_at.isoformat() if student.updated_at else None,
+    }
 
 # Configure logging
 logging.basicConfig(
@@ -579,3 +585,36 @@ async def get_lunch_timing() -> Dict[str, Any]:
         },
         request_id=request_id
     ).dict()
+
+# # =============================================================================
+# DATA_PATH = "data\smit.txt"
+# if not os.path.exists(DATA_PATH):
+#     raise FileNotFoundError(f"Missing {DATA_PATH}")
+
+# loader = TextLoader(DATA_PATH)
+# documents = loader.load()
+
+# # Efficient splitting with adaptive logic
+# splitter = RecursiveCharacterTextSplitter(
+#     chunk_size=800, chunk_overlap=100, separators=["\n\n", "\n", ".", " "]
+# )
+# docs = splitter.split_documents(documents)
+
+# # Build embeddings + FAISS index
+# embeddings = GoogleGenerativeAIEmbeddings(model='gemini-embedding-001', api_key=os.getenv("GEMINI_API_KEY"))
+# vectorstore = FAISS.from_documents(docs, embeddings)
+# retriever = vectorstore.as_retriever()
+
+# # -------------------------
+# # 4. Retriever Tool
+# # -------------------------
+# @function_tool
+# def retrieve_info(query: str) -> str:
+#     """Search the local knowledge base and return the most relevant context for the query.
+
+#     Args:
+#         query: The user question or topic to look up.
+#     """
+#     results = retriever.get_relevant_documents(query)
+#     context = "\n\n".join([doc.page_content for doc in results[:3]])
+#     return context if context else "No relevant info found."

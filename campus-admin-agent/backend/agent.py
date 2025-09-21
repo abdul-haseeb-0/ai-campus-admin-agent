@@ -1,17 +1,17 @@
 import os
 from openai import AsyncOpenAI
-from agents import Agent, OpenAIChatCompletionsModel, Runner, handoffs
+from agents import Agent, OpenAIChatCompletionsModel, Runner, handoffs, ModelSettings
 from openai.types.responses import ResponseTextDeltaEvent
 from pydantic import BaseModel, Field
-from tools import StudentResponse
 from dotenv import load_dotenv
 import asyncio
 
 # Import all the function tools
-from tools import (
+from backend.tools import (
     add_student, get_student, update_student, delete_student, list_students,
     get_total_students, get_students_by_department, get_recent_onboarded_students,
-    get_active_students_last_7_days, get_cafeteria_timings, get_library_hours, get_lunch_timing
+    get_active_students_last_7_days, get_cafeteria_timings, get_library_hours, get_lunch_timing, 
+    # retrieve_info
 )
 
 load_dotenv()
@@ -25,9 +25,7 @@ client = AsyncOpenAI(
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
 )
 
-# ================= Enhanced Student Management Agent ==================
-# Enhanced instructions: Added more guidance on validation, error handling, and user interaction.
-# Ensured unique checks for ID and email are emphasized.
+# ================= Student Management Agent ==================
 student_management_agent = Agent(
     name="Student_Management_Agent",
     instructions="""You are a Campus Admin Assistant specialized in managing student records. Your primary tasks include adding, retrieving, updating, deleting, and listing student information.
@@ -54,9 +52,8 @@ student_management_agent = Agent(
 )
 print("Student Management Agent initialized.")
 
-# ================= Enhanced Campus Analytics Agent ==================
-# Enhanced instructions: Added emphasis on data visualization suggestions, handling no-data cases, and providing insights.
-# Added output_type=str for consistency.
+# ================= Campus Analytics Agent ==================
+
 campus_analytics_agent = Agent(
     name="Campus_Analytics_Agent",
     instructions="""You are a Campus Admin Assistant specialized in providing campus analytics and insights. You handle queries related to student statistics, distributions, and activity tracking.
@@ -81,38 +78,33 @@ campus_analytics_agent = Agent(
 )
 print("Campus Analytics Agent initialized.")
 
-# ================= Enhanced Campus Info Agent ==================
-# Enhanced instructions: Emphasized accuracy, added handling for unknown info, and improved user confirmation.
+# ================= Campus Info Agent ==================
 campus_info_agent = Agent(
     name="Campus_Info_Agent",
-    instructions="""You are a Campus Admin Assistant specialized in providing information about campus facilities and services, such as cafeteria timings and library hours.
-    
-    Key Guidelines:
-    - Only provide information from available tools; do not make up details or speculate.
-    - For cafeteria queries: Use get_cafeteria_timings tool to get accurate timing information.
-    - For lunch timing specifically: Use get_lunch_timing tool for precise lunch hours (11:30 AM - 2:30 PM).
-    - For library queries: Use get_library_hours tool for accurate hours.
-    - If the information isn't available via tools, respond clearly: "I'm sorry, I don't have information on that. Would you like details on something else, like library hours?"
-    - Format responses helpfully: Use bullet points for timings (e.g., - Monday-Friday: 8 AM - 8 PM).
-    - Be up-to-date: Rely solely on tool outputs, assuming they reflect current info.
-    - Suggest related info if relevant (e.g., after library hours, mention study room policies if queried).
-    - Always use the appropriate tool to get current information rather than guessing.
-    
-    For non-info queries, recommend handing off.""",
+    instructions="""
+You are a Campus Admin Assistant specialized in providing information about campus facilities and services, such as cafeteria timings and library hours.
+
+Intelligent Response Guidelines:
+- Always use the most relevant tool for the user's query, even if the tool returns more information than requested.
+- Extract and present only the specific details the user asks for (e.g., if asked for the library name, extract it from the library hours tool output).
+- If the query is ambiguous, clarify with the user before responding.
+- Never invent or speculate; only use data from tool outputs.
+- Format responses concisely and contextually, summarizing or highlighting the requested info.
+- If the requested info is not available, respond clearly and suggest related available information.
+- For non-info queries, recommend handing off to the appropriate agent.
+""",
     model=OpenAIChatCompletionsModel(model="gemini-2.0-flash", openai_client=client),
     tools=[
         get_cafeteria_timings, 
         get_library_hours,
-        get_lunch_timing
-    ],
-    output_type=str,
+        get_lunch_timing,
+        # retrieve_info
+        ],
+    model_settings=ModelSettings(tool_choice="required")
 )
 print("Campus Info Agent initialized.")
 
-# ================= Enhanced Handoff Agent (Orchestrator) ==================
-# Enhanced instructions: Completed the prompt, added classification logic, fallback handling, and direct handling for simple queries.
-# Improved orchestration: Explicitly describe how to classify and hand off.
-# Added output_type=str for general responses.
+# ================= Handoff Agent (Orchestrator) ==================
 handoff_agent = Agent(
     name="Handoff_Agent",
     instructions="""You are the primary Campus Admin Assistant orchestrator. Your role is to analyze user queries and route them to the most appropriate specialized agent: Student Management, Campus Analytics, or Campus Info. If the query spans multiple areas, hand off sequentially or combine responses if possible.
@@ -138,48 +130,46 @@ handoff_agent = Agent(
     Your goal is to ensure the user gets the most accurate and relevant information or assistance possible. Always aim to be helpful, accurate, and provide clear responses.""",
     model=OpenAIChatCompletionsModel(model="gemini-2.0-flash", openai_client=client),
     handoffs=[student_management_agent, campus_analytics_agent, campus_info_agent],
-    output_type=str,
 )
-print("Handoff Agent initialized.")
 
-# ================= Main Function with Enhancements ==================
-# Added error handling in the loop, improved UI prompts, and a welcome message.
-async def main():
-    print("🏫 Welcome to Saylani Mass IT Training (S.M.I.T.) Admin Assistant")
-    print("=" * 60)
-    print("I can help with:")
-    print("• Student Management: Add, retrieve, update, delete, or list student records")
-    print("• Analytics: Student counts, department distributions, recent onboardings, activity tracking")
-    print("• Campus Info: Cafeteria timings, library hours, S.M.I.T. program details")
-    print("=" * 60)
+# # ================= Main Function with Enhancements ==================
+# # Added error handling in the loop, improved UI prompts, and a welcome message.
+# async def main():
+#     print("🏫 Welcome to Saylani Mass IT Training (S.M.I.T.) Admin Assistant")
+#     print("=" * 60)
+#     print("I can help with:")
+#     print("• Student Management: Add, retrieve, update, delete, or list student records")
+#     print("• Analytics: Student counts, department distributions, recent onboardings, activity tracking")
+#     print("• Campus Info: Cafeteria timings, library hours, S.M.I.T. program details")
+#     print("=" * 60)
     
-    while True:
-        try:
-            query = input("\n💬 Enter your query (or 'quit' to exit): ").strip()
-            if query.lower() in ['quit', 'exit', 'q']:
-                print("👋 Goodbye!")
-                break
+#     while True:
+#         try:
+#             query = input("\n💬 Enter your query (or 'quit' to exit): ").strip()
+#             if query.lower() in ['quit', 'exit', 'q']:
+#                 print("👋 Goodbye!")
+#                 break
                 
-            if not query:
-                print("Please enter a valid query.")
-                continue
+#             if not query:
+#                 print("Please enter a valid query.")
+#                 continue
             
-            print("\n🤖 Assistant:")
-            try:
-                result = Runner.run_streamed(handoff_agent, input=query)
-                async for event in result.stream_events():
-                    if event.type == "raw_response_event" and isinstance(event.data, ResponseTextDeltaEvent):
-                        print(event.data.delta, end="", flush=True)
-                print()  # Add newline after response
-            except Exception as e:
-                print(f"⚠️ An error occurred: {str(e)}")
-                print("Please try again or rephrase your query.")
-        except (EOFError, KeyboardInterrupt):
-            print("\n👋 Goodbye!")
-            break
-        except Exception as e:
-            print(f"\n⚠️ Unexpected error: {str(e)}")
-            print("Please try again.")
+#             print("\n🤖 Assistant:")
+#             try:
+#                 result = Runner.run_streamed(handoff_agent, input=query)
+#                 async for event in result.stream_events():
+#                     if event.type == "raw_response_event" and isinstance(event.data, ResponseTextDeltaEvent):
+#                         print(event.data.delta, end="", flush=True)
+#                 print()  # Add newline after response
+#             except Exception as e:
+#                 print(f"⚠️ An error occurred: {str(e)}")
+#                 print("Please try again or rephrase your query.")
+#         except (EOFError, KeyboardInterrupt):
+#             print("\n👋 Goodbye!")
+#             break
+#         except Exception as e:
+#             print(f"\n⚠️ Unexpected error: {str(e)}")
+#             print("Please try again.")
 
-if __name__ == "__main__":
-    asyncio.run(main())
+# if __name__ == "__main__":
+#     asyncio.run(main())

@@ -13,7 +13,7 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 load_dotenv()
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 if not GEMINI_API_KEY:
-    raise ValueError("OPENAI_API_KEY not set in .env")
+    raise ValueError("GEMINI_API_KEY not set in .env")
 
 # -------------------------
 # 2. OpenAI Client

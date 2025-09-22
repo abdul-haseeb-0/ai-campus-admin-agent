@@ -2,16 +2,12 @@ import os
 from openai import AsyncOpenAI
 from agents import Agent, OpenAIChatCompletionsModel, Runner, handoffs, ModelSettings
 from openai.types.responses import ResponseTextDeltaEvent
-from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 import asyncio
-
-# Import all the function tools
 from backend.tools import (
     add_student, get_student, update_student, delete_student, list_students,
     get_total_students, get_students_by_department, get_recent_onboarded_students,
-    get_active_students_last_7_days, get_cafeteria_timings, get_library_hours, get_lunch_timing, 
-    # retrieve_info
+    get_active_students_last_7_days, get_cafeteria_timings, get_library_hours, get_lunch_timing
 )
 
 load_dotenv()
@@ -82,24 +78,23 @@ print("Campus Analytics Agent initialized.")
 campus_info_agent = Agent(
     name="Campus_Info_Agent",
     instructions="""
-You are a Campus Admin Assistant specialized in providing information about campus facilities and services, such as cafeteria timings and library hours.
+    You are a Campus Admin Assistant specialized in providing information about campus facilities and services, such as cafeteria timings and library hours.
 
-Intelligent Response Guidelines:
-- Always use the most relevant tool for the user's query, even if the tool returns more information than requested.
-- Extract and present only the specific details the user asks for (e.g., if asked for the library name, extract it from the library hours tool output).
-- If the query is ambiguous, clarify with the user before responding.
-- Never invent or speculate; only use data from tool outputs.
-- Format responses concisely and contextually, summarizing or highlighting the requested info.
-- If the requested info is not available, respond clearly and suggest related available information.
-- For non-info queries, recommend handing off to the appropriate agent.
-""",
+    Intelligent Response Guidelines:
+    - Always use the most relevant tool for the user's query, even if the tool returns more information than requested.
+    - Extract and present only the specific details the user asks for (e.g., if asked for the library name, extract it from the library hours tool output).
+    - If the query is ambiguous, clarify with the user before responding.
+    - Never invent or speculate; only use data from tool outputs.
+    - Format responses concisely and contextually, summarizing or highlighting the requested info.
+    - If the requested info is not available, respond clearly and suggest related available information.
+    - For non-info queries, recommend handing off to the appropriate agent.
+    """,
     model=OpenAIChatCompletionsModel(model="gemini-2.0-flash", openai_client=client),
     tools=[
         get_cafeteria_timings, 
         get_library_hours,
         get_lunch_timing,
-        ],
-    model_settings=ModelSettings(tool_choice="required")
+    ],
 )
 print("Campus Info Agent initialized.")
 

@@ -1,30 +1,16 @@
 import asyncio
-from openai import AsyncOpenAI
 from dotenv import load_dotenv
-from sqlalchemy.orm import Session
 from sqlalchemy import func, desc, or_
 from datetime import datetime, timedelta, timezone
 from typing import Dict, Any, List, Optional
 from pydantic import BaseModel, Field, EmailStr, validator
 from backend.db import get_db, Student, ActivityLog, SessionLocal
-import os
 from dotenv import load_dotenv
-from langchain_community.document_loaders import TextLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import FAISS
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import os
 import logging
 import re
 import uuid
-from contextlib import asynccontextmanager
-
-# Try to import function_tool, with fallback to handle import errors
-try:
-    from agents import Agent, OpenAIChatCompletionsModel, Runner, function_tool
-except ImportError as e:
-    logging.error(f"Failed to import agents module: {str(e)}")
-    raise ImportError("Ensure the 'agents' package is installed and correctly configured.")
+from agents import function_tool
 
 load_dotenv()
 
@@ -498,6 +484,8 @@ async def get_active_students_last_7_days() -> Dict[str, Any]:
 
 # =============================================================================
 # CAMPUS FAQ TOOLS
+# =============================================================================
+
 @function_tool
 async def get_library_name() -> Dict[str, Any]:
     """Get the name of the campus library"""
@@ -521,7 +509,6 @@ async def get_cafeteria_name() -> Dict[str, Any]:
         data={"cafeteria_name": "Campus Cafeteria"},
         request_id=request_id
     ).dict()
-# =============================================================================
 
 @function_tool
 async def get_cafeteria_timings() -> Dict[str, Any]:

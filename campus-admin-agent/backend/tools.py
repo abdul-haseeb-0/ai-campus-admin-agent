@@ -1,10 +1,9 @@
-import asyncio
 from dotenv import load_dotenv
 from sqlalchemy import func, desc, or_
 from datetime import datetime, timedelta, timezone
 from typing import Dict, Any, List, Optional
 from pydantic import BaseModel, Field, EmailStr, validator
-from backend.db import get_db, Student, ActivityLog, SessionLocal
+from backend.db import Student, ActivityLog, SessionLocal
 from dotenv import load_dotenv
 import os
 import logging
@@ -227,7 +226,7 @@ def add_student(name: str, student_id: str, department: str, email: str) -> Dict
         return ApiResponse(success=False, message=f"Error adding student: {str(e)}", request_id=request_id).dict()
 
 @function_tool
-async def get_student(student_id: str) -> Dict[str, Any]:
+def get_student(student_id: str) -> Dict[str, Any]:
     """Get student information by ID
     
     Args:
@@ -258,7 +257,7 @@ async def get_student(student_id: str) -> Dict[str, Any]:
         return ApiResponse(success=False, message=f"Error retrieving student: {str(e)}", request_id=request_id).dict()
 
 @function_tool
-async def update_student(student_id: str, field: str, new_value: str) -> Dict[str, Any]:
+def update_student(student_id: str, field: str, new_value: str) -> Dict[str, Any]:
     """Update a specific field of a student
     
     Args:
@@ -306,7 +305,7 @@ async def update_student(student_id: str, field: str, new_value: str) -> Dict[st
         return ApiResponse(success=False, message=f"Error updating student: {str(e)}", request_id=request_id).dict()
 
 @function_tool
-async def delete_student(student_id: str) -> Dict[str, Any]:
+def delete_student(student_id: str) -> Dict[str, Any]:
     """Delete a student from the database
     
     Args:
@@ -348,7 +347,7 @@ async def delete_student(student_id: str) -> Dict[str, Any]:
         return ApiResponse(success=False, message=f"Error deleting student: {str(e)}", request_id=request_id).dict()
 
 @function_tool
-async def list_students() -> Dict[str, Any]:
+def list_students() -> Dict[str, Any]:
     """Get list of all students"""
     request_id = str(uuid.uuid4())
     try:
@@ -371,7 +370,7 @@ async def list_students() -> Dict[str, Any]:
 # =============================================================================
 
 @function_tool
-async def get_total_students() -> Dict[str, Any]:
+def get_total_students() -> Dict[str, Any]:
     """Get total number of students with active/inactive breakdown"""
     request_id = str(uuid.uuid4())
     try:
@@ -395,7 +394,7 @@ async def get_total_students() -> Dict[str, Any]:
         return ApiResponse(success=False, message=f"Error getting student count: {str(e)}", request_id=request_id).dict()
 
 @function_tool
-async def get_students_by_department() -> Dict[str, Any]:
+def get_students_by_department() -> Dict[str, Any]:
     """Get student count grouped by department"""
     request_id = str(uuid.uuid4())
     try:
@@ -419,7 +418,7 @@ async def get_students_by_department() -> Dict[str, Any]:
         return ApiResponse(success=False, message=f"Error getting department data: {str(e)}", request_id=request_id).dict()
 
 @function_tool
-async def get_recent_onboarded_students(limit: int = 5) -> Dict[str, Any]:
+def get_recent_onboarded_students(limit: int = 5) -> Dict[str, Any]:
     """Get recently onboarded students
     
     Args:
@@ -449,7 +448,7 @@ async def get_recent_onboarded_students(limit: int = 5) -> Dict[str, Any]:
         return ApiResponse(success=False, message=f"Error getting recent students: {str(e)}", request_id=request_id).dict()
 
 @function_tool
-async def get_active_students_last_7_days() -> Dict[str, Any]:
+def get_active_students_last_7_days() -> Dict[str, Any]:
     """Get students who were active in the last 7 days (based on activity logs)"""
     request_id = str(uuid.uuid4())
     try:
@@ -487,31 +486,7 @@ async def get_active_students_last_7_days() -> Dict[str, Any]:
 # =============================================================================
 
 @function_tool
-async def get_library_name() -> Dict[str, Any]:
-    """Get the name of the campus library"""
-    request_id = str(uuid.uuid4())
-    logger.info(f"Agent request {request_id}: Getting library name")
-    return ApiResponse(
-        success=True,
-        message="Library name retrieved successfully",
-        data={"library_name": "Saylani Library"},
-        request_id=request_id
-    ).dict()
-
-@function_tool
-async def get_cafeteria_name() -> Dict[str, Any]:
-    """Get the name of the campus cafeteria"""
-    request_id = str(uuid.uuid4())
-    logger.info(f"Agent request {request_id}: Getting cafeteria name")
-    return ApiResponse(
-        success=True,
-        message="Cafeteria name retrieved successfully",
-        data={"cafeteria_name": "Campus Cafeteria"},
-        request_id=request_id
-    ).dict()
-
-@function_tool
-async def get_cafeteria_timings() -> Dict[str, Any]:
+def get_cafeteria_timings() -> Dict[str, Any]:
     """Get cafeteria operating hours"""
     request_id = str(uuid.uuid4())
     logger.info(f"Agent request {request_id}: Getting cafeteria timings")
@@ -533,7 +508,7 @@ async def get_cafeteria_timings() -> Dict[str, Any]:
     ).dict()
 
 @function_tool
-async def get_library_hours() -> Dict[str, Any]:
+def get_library_hours() -> Dict[str, Any]:
     """Get library operating hours"""
     request_id = str(uuid.uuid4())
     logger.info(f"Agent request {request_id}: Getting library hours")
@@ -554,7 +529,7 @@ async def get_library_hours() -> Dict[str, Any]:
     ).dict()
 
 @function_tool
-async def get_lunch_timing() -> Dict[str, Any]:
+def get_lunch_timing() -> Dict[str, Any]:
     """Get lunch timing information specifically"""
     request_id = str(uuid.uuid4())
     logger.info(f"Agent request {request_id}: Getting lunch timing")
@@ -572,4 +547,3 @@ async def get_lunch_timing() -> Dict[str, Any]:
         },
         request_id=request_id
     ).dict()
-

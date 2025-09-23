@@ -62,7 +62,7 @@ def retrieve_info(query: str) -> str:
 # 5. Agent
 # -------------------------
 rag_agent = Agent(
-    name="smit_rag_agent",
+    name="campus_rag_agent",
     instructions=(
         "You are a retrieval-augmented assistant. "
         "Use the `retrieve_info` tool whenever the query requires external knowledge. "

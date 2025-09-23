@@ -114,42 +114,6 @@ async def chat_stream_endpoint(request: ChatRequest):
 
     return StreamingResponse(event_generator(), media_type="text/event-stream")
 
-
-@app.post("/end_thread")
-async def end_thread(request: ChatRequest):
-    user_id, thread_id = get_ids(request)
-    try:
-        past_messages = get_short_term_memory(user_id, thread_id, limit=50)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Memory fetch error: {e}")
-
-    if not past_messages:
-        return {"message": "No conversation found to summarize."}
-
-    convo_text = "\n".join([f"{m['role']}: {m['message']}" for m in past_messages])
-    summary_prompt = f"Summarize the following conversation in 5 sentences, focusing on important details:\n\n{convo_text}"
-
-    try:
-        result = await Runner.run(handoff_agent, summary_prompt)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Agent error during summary: {e}")
-
-    summary = str(result.output) if hasattr(result, "output") else str(result)
-
-    try:
-        save_long_term_memory(user_id, summary, tags=["thread_summary"])
-        clear_short_term_memory(user_id, thread_id)
-    except Exception as e:
-        print(f"[Memory Error] Failed to save long-term memory: {e}")
-
-    return {
-        "message": "Thread summarized and saved to long-term memory.",
-        "summary": summary,
-        "user_id": user_id,
-        "thread_id": thread_id,
-    }
-
-
 @app.post("/students")
 async def students(request: ChatRequest):
     result = await Runner.run(student_management_agent, request.query)
